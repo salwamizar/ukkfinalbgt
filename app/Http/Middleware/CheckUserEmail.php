@@ -21,10 +21,6 @@ class CheckUserEmail
         if (Auth::check()) {
             $user = Auth::user();
 
-            if ($user->hasRole('super-admin')) {
-                return $next($request); // bypass check
-            }
-
             $userEmail = $user->email;
             $exists = false;
 

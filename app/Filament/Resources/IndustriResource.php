@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\IndustriResource\Pages;
 use App\Filament\Resources\IndustriResource\RelationManagers;
 use App\Models\Industri;
+use App\Models\Guru;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -27,7 +28,6 @@ class IndustriResource extends Resource
                     ->label('Foto')
                     ->image()
                     ->directory('industri-foto')
-                    ->maxLength(255)
                     ->required(),
                 Forms\Components\TextInput::make('nama')
                     ->required()
@@ -45,8 +45,11 @@ class IndustriResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('guru_pembimbing')
-                    ->maxLength(255),
+                Forms\Components\Select::make('guru_pembimbing')
+                    ->label('Guru Pembimbing')
+                    ->options(Guru::all()->pluck('nama','nama'))
+                    ->searchable()
+                    ->required(),
             ]);
     }
 

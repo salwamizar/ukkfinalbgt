@@ -11,22 +11,24 @@
                 <x-app-logo />
             </a>
 
+            <!-- navigation link -->
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="user" :href="route('front.siswa.index')" :current="request()->routeIs('siswa.*')" wire:navigate>{{ __('Profil') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="briefcase" :href="route('front.pkl.index')" :current="request()->routeIs('pkl.*')" wire:navigate>{{ __('Lapor Pkl') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="building-office-2" :href="route('front.industri.index')" :current="request()->routeIs('industri.*')" wire:navigate>{{ __('Industri') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="building-office-2" :href="route('front.guru.index')" :current="request()->routeIs('guru.*')" wire:navigate>{{ __('Guru Pembimbing') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
 
+            <!-- Menu #2 -->
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
+                <!-- <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
                 {{ __('Documentation') }}
-                </flux:navlist.item>
+                </flux:navlist.item> -->
             </flux:navlist>
 
             <!-- Desktop User Menu -->

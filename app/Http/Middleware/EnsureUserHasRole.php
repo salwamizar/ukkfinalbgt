@@ -21,10 +21,6 @@ class EnsureUserHasRole
             abort(403, 'Tidak ada user');
         }
 
-        if(!$user->hasRole('super-admin')) {
-            return $next($request); //bypass super-admin
-        }
-
         if (!$user || $user->roles->isEmpty()) {
             abort(403, 'Akun anda belum terverifikasi oleh admin.');
         }
