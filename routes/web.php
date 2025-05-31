@@ -9,6 +9,10 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IndustriController;
 use App\Http\Controllers\PklController;
+use App\Livewire\Front\Siswa\Index as SiswaIndex;
+use App\Livewire\Front\Guru\Index as GuruIndex;
+use App\Livewire\Front\Industri\Index as IndustriIndex;
+use App\Livewire\Front\Pkl\Index as PklIndex;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,10 +35,10 @@ Route::middleware(['auth'])->group(function () {
 
 //rute ke masing masing halaman
 Route::name('front.')->group(function () {
-    Route::view('/siswa', 'livewire.front.siswa.index')->name('siswa.index');
-    Route::view('/guru', 'livewire.front.guru.index')->name('guru.index');
-    Route::view('/industri', 'livewire.front.industri.index')->name('industri.index');
-    Route::view('/pkl', 'livewire.front.pkl.index')->name('pkl.index');
+    Route::get('/siswa', SiswaIndex::class)->name('siswa.index');
+    Route::get('/guru', GuruIndex::class)->name('guru.index');
+    Route::get('/industri', IndustriIndex::class)->name('industri.index');
+    Route::get('/pkl', PklIndex::class)->name('pkl.index');
 });
 
 require __DIR__.'/auth.php';
