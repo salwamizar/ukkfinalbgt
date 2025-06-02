@@ -34,7 +34,7 @@ class CheckUserEmail
 
             if (!$exists) {
                 Auth::logout();
-                return redirect('/login')->with('error', 'Email tidak terdaftar sebagai siswa.');
+                abort(403, 'Anda bukan user Pkl');
             }
 
         }

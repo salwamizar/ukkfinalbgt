@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('industris', function (Blueprint $table) {
             $table->id();
-            $table->string('foto')->nullable();
+            $table->string('foto_industri')->nullable();
             $table->string('nama');
             $table->string('bidang_usaha');
             $table->text('alamat');
             $table->string('kontak');
             $table->string('email')->unique();
-            $table->string('guru_pembimbing')->nullable();
+            $table->string('website');
             $table->timestamps();
         });
     }

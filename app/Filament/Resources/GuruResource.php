@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\GuruResource\Pages;
 use App\Filament\Resources\GuruResource\RelationManagers;
+use App\Models\User;
 use App\Models\Guru;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -23,7 +24,7 @@ class GuruResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto')
+                Forms\Components\FileUpload::make('foto_guru')
                     ->label('Foto')
                     ->image()
                     ->directory('guru-foto')
@@ -47,10 +48,12 @@ class GuruResource extends Resource
                 Forms\Components\TextInput::make('kontak')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
+                Forms\Components\Select::make('email')
+                    ->Label('Email Guru')
+                    ->options(User::pluck('email', 'email'))
+                    ->searchable()
                     ->required()
-                    ->maxLength(255),
+                    ->unique(ignoreRecord:true),
             ]);
     }
 

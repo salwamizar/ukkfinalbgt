@@ -22,27 +22,41 @@
                         <tr>
                             <th scope="col" class="px-6 py-3">No</th>
                             <th scope="col" class="px-6 py-3">Foto</th>
+                            <th scope="col" class="px-6 py-3">Nama</th>
                             <th scope="col" class="px-6 py-3">NIP</th>
                             <th scope="col" class="px-6 py-3">Gender</th>
                             <th scope="col" class="px-6 py-3">Alamat</th>
                             <th scope="col" class="px-6 py-3">Kontak</th>
                             <th scope="col" class="px-6 py-3">Email</th>
-                            <th scope="col" class="px-6 py-3">Pembimbing di</th>
                         </tr>
                     </thead>
 
                     <!-- Data Tabel Pkl -->
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td class="px-6 py-4">No</td>
-                            <td class="px-6 py-4">Nama"</td>
-                            <td class="px-6 py-4">industri</td>
-                            <td class="px-6 py-4">bidang Usaha</td>
-                            <td class="px-6 py-4">guru pembimbing</td>
-                            <td class="px-6 py-4">tanggal mulai</td>
-                            <td class="px-6 py-4">tanggal selesai</td>
-                            <td class="px-6 py-4">durasi</td>
-                        </tr>
+                        @php
+                            $no = 0;
+                        @endphp
+
+                        @foreach ($gurus as $key => $guru)
+
+                        @php
+                        $no++;
+
+                        @endphp
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4">{{ $no }}</td>
+                                <td class=" px-6 py-4">
+                                    <img src="{{ asset('storage/guru-foto/' . $guru->foto) }}" alt="Foto {{ $guru->nama }}"
+                                    class="w-12 h-12 object-cover rounded-full">
+                                </td>
+                                <td class="px-6 py-4">{{ $guru->nama }}</td>
+                                <td class="px-6 py-4">{{ $guru->nip }}</td>
+                                <td class="px-6 py-4">{{ $guru->gender_text}}</td>
+                                <td class="px-6 py-4">{{ $guru->alamat }}</td>
+                                <td class="px-6 py-4">{{ $guru->kontak }}</td>
+                                <td class="px-6 py-4">{{ $guru->email }}</td>
+                            </tr>
+                        @endforeach 
                     </tbody>
                 </table>
 

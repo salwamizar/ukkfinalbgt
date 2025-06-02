@@ -27,7 +27,7 @@ class Guru extends Model
         return $this->hasMany(Pkl::class);
     }
 
-        protected static function booted()
+    protected static function booted()
     {
         static::created(function ($guru) {
             $user = \App\Models\User::where('email', $guru->email)->first();

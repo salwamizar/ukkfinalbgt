@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
-            $table->string('foto')->nullable();
+            $table->string('foto_siswa')->nullable();
             $table->string('nama');
             $table->string('nis')->unique();
             $table->enum('gender', ['L','P'])->default('L');

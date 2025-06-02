@@ -15,10 +15,9 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item class="mb-2" icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item class="mb-2" icon="user" :href="route('front.siswa.index')" :current="request()->routeIs('siswa.*')" wire:navigate>{{ __('Profil') }}</flux:navlist.item>
                     <flux:navlist.item class="mb-2" icon="briefcase" :href="route('front.pkl.index')" :current="request()->routeIs('pkl.*')" wire:navigate>{{ __('Lapor Pkl') }}</flux:navlist.item>
-                    <flux:navlist.item class="mb-2" icon="building-office-2" :href="route('front.industri.index')" :current="request()->routeIs('industri.*')" wire:navigate>{{ __('Industri') }}</flux:navlist.item>
-                    <flux:navlist.item class="mb-2" icon="building-office-2" :href="route('front.guru.index')" :current="request()->routeIs('guru.*')" wire:navigate>{{ __('Guru Pembimbing') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="building-office-2" :href="route('front.industri.index')" :current="request()->routeIs('industri.*')" wire:navigate>{{ __('Mitra Industri') }}</flux:navlist.item>
+                    <flux:navlist.item class="mb-2" icon="user" :href="route('front.guru.index')" :current="request()->routeIs('guru.*')" wire:navigate>{{ __('Guru Pembimbing') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

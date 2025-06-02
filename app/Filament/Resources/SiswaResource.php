@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SiswaResource\Pages;
 use App\Filament\Resources\SiswaResource\RelationManagers;
+use App\Models\User;
 use App\Models\Siswa;
 use Filament\Actions\Exports\Concerns\CanFormatState;
 use Filament\Forms;
@@ -25,7 +26,7 @@ class SiswaResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto')
+                Forms\Components\FileUpload::make('foto_siswa')
                     ->label('Foto')
                     ->image()
                     ->directory('siswa-foto')
@@ -49,10 +50,12 @@ class SiswaResource extends Resource
                 Forms\Components\TextInput::make('kontak')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
+                Forms\Components\Select::make('email')
+                    ->Label('Email Siswa')
+                    ->options(User::all()->pluck('email', 'email'))
+                    ->searchable()
                     ->required()
-                    ->maxLength(255),
+                    ->unique(ignoreRecord:true),
                 Forms\Components\Toggle::make('status_pkl')
                     ->required(),
             ]);
