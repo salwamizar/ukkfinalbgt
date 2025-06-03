@@ -12,7 +12,7 @@
             <div class="mx-auto flex items-center justify-between p-2 rounded-lg">
 
                 <!-- Form searching -->
-
+                <input wire:model.live="search" type="text" placeholder="Search ..." class="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 
             <!-- Table -->
@@ -47,7 +47,7 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="px-6 py-4">{{ $industri->id }}</td>
                                 <td class=" px-6 py-4">
-                                    <img src="{{ asset('storage/guru-foto/' . $industri->foto) }}" alt="Foto {{ $industri->nama }}"
+                                    <img src="{{ asset('storage/industri-foto/' . $industri->foto) }}" alt="Foto {{ $industri->nama }}"
                                     class="w-12 h-12 object-cover rounded-full">
                                 </td>
                                 <td class="px-6 py-4">{{ $industri->nama }}</td>
@@ -60,8 +60,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
-                <!-- Paginate -->
 
                 <!-- <div>
                     <nav aria-label="Page navigation example">

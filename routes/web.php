@@ -18,6 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+// Akses tabel lapor pkl
+Route::middleware(['auth', 'role:siswa'])->group(function () {
+    Route::get('/pkl/create', [PklController::class, 'create'])->name('pkl.create');
+    Route::post('/pkl/store', [PklController::class, 'store'])->name('pkl.store');
+});
+
+
 //Akses dengan role
 Route::middleware(['auth', 'verified', 'check_user_email', 'ensure_user_has_role'])
     ->group(function () {

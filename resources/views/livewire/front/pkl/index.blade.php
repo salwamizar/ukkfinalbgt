@@ -45,9 +45,14 @@
         <div class="mx-auto flex items-center justify-between p-2 rounded-lg">
 
             <!-- Button create pkl -->
-            <button wire:click="create()" class="text-gray-900 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                Lapor Pkl
-            </button>
+             <!-- autentikasi agar yang bisa tambah pkl hanya siswa -->
+             @auth 
+                @if (Auth::user()->hasRole('siswa') && Auth::user()->siswa)
+                    <button wire:click="create()" class="text-gray-900 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        Lapor Pkl
+                    </button>
+                @endif
+             @endauth
 
             <input wire:model.live="search" type="text" placeholder="Search ..." class="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             

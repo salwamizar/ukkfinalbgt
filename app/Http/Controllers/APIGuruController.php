@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\Guru;
 
 class APIGuruController extends Controller
 {
@@ -11,7 +12,8 @@ class APIGuruController extends Controller
      */
     public function index()
     {
-        //
+        $guru = Guru::get();
+        return response()->json($guru, 200);
     }
 
     /**
@@ -19,7 +21,15 @@ class APIGuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $guru = new Guru();
+        $guru->nama = $request->nama;
+        $guru->nip = $request->nip;
+        $guru->gender = $request->jenis_kelamin;
+        $guru->alamat = $request->alamat;
+        $guru->kontak = $request->kontak;
+        $guru->email = $request->email;
+        $guru->save();
+        return response()->json($guru, 200);
     }
 
     /**
@@ -27,7 +37,8 @@ class APIGuruController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $guru = Guru::find($id);
+        return response()->json($guru, 200);
     }
 
     /**
@@ -35,7 +46,15 @@ class APIGuruController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $guru = Guru::find($id);
+        $guru->nama = $request->nama;
+        $guru->nip = $request->nip;
+        $guru->gender = $request->jenis_kelamin;
+        $guru->alamat = $request->alamat;
+        $guru->kontak = $request->kontak;
+        $guru->email = $request->email;
+        $guru->save();
+        return response()->json($guru, 200);
     }
 
     /**
@@ -43,6 +62,8 @@ class APIGuruController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Guru::destroy($id);
+
+        return response()->json(["message"=>"Deleted"], 200);
     }
 }
