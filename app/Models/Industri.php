@@ -24,6 +24,6 @@ class Industri extends Model
     ];
 
     public function pkls() {
-        return $this->hasMany(Pkl::class);
+        return $this->hasMany(Pkl::class, 'industri_id');
     }
 }

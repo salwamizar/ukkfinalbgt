@@ -26,7 +26,7 @@ class SiswaResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto_siswa')
+                Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
                     ->directory('siswa-foto')

@@ -24,7 +24,7 @@ class GuruResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto_guru')
+                Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
                     ->directory('guru-foto')

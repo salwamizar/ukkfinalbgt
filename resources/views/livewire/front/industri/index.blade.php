@@ -62,7 +62,8 @@
                 </table>
 
                 <!-- Paginate -->
-                <div>
+
+                <!-- <div>
                     <nav aria-label="Page navigation example">
                         <ul class="flex items-center -space-x-px h-8 text-sm">
                             <li>
@@ -98,7 +99,7 @@
                             </li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
 
             </div>
         </div>

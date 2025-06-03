@@ -24,7 +24,7 @@ class IndustriResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto_industri')
+                Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
                     ->directory('industri-foto')
@@ -45,10 +45,11 @@ class IndustriResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('website')
-                    ->website()
-                    ->required()
-                    ->maxLength(255)
+                Forms\Components\Select::make('guru_pembimbing')
+                    ->label('Guru Pembimbing')
+                    ->options(Guru::all()->pluck('nama','nama'))
+                    ->searchable()
+                    ->required(),
             ]);
     }
 
